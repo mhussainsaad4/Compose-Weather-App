@@ -39,6 +39,16 @@ fun Home() = ConstraintLayout(
 
     val (heading, autoCompleteView, dropDownMenu) = createRefs()
 
+    Box(
+        modifier = Modifier.constrainAs(heading) {
+            top.linkTo(parent.top)
+            start.linkTo(parent.start)
+            end.linkTo(parent.end)
+        }
+    ) {
+        CText(text = "Choose Your Current Location")
+    }
+
     AutoCompleteText(
         value = autoCompleteTextValue,
         modifier = Modifier
